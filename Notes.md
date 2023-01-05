@@ -9,3 +9,17 @@ Thus, the BIOS code starts its execution.  BIOS first searches for a bootable de
 Once the BIOS has found a bootable device, it copies the contents of the device’s first sector into RAM starting from physical address 0x7c00; and then jumps into the address and executes the code just loaded. This code is called the bootloader.
 
 The bootloader then loads the kernel at the physical address 0x100000. The address 0x100000 is used as the start-address for all big kernels on x86 machines.
+
+# Multiboot
+
+There is a standard for loading various x86 kernels using a boot loader; called as Multiboot specification.
+
+GRUB will only load our kernel if it complies with the Multiboot spec.
+
+According to the spec, the kernel must contain a header (known as Multiboot header) within its first 8 KiloBytes.
+
+Further, This Multiboot header must contain 3 fields that are 4 byte aligned namely:
+
+1. magic field: containing the magic number 0x1BADB002, to identify the header.
+2. flags field: We will not care about this field. We will simply set it to zero.
+3. checksum field: the checksum field when added to the fields ‘magic’ and ‘flags’ must give zero.

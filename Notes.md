@@ -23,3 +23,10 @@ Further, This Multiboot header must contain 3 fields that are 4 byte aligned nam
 1. magic field: containing the magic number 0x1BADB002, to identify the header.
 2. flags field: We will not care about this field. We will simply set it to zero.
 3. checksum field: the checksum field when added to the fields ‘magic’ and ‘flags’ must give zero.
+
+# VGA 
+Each screen character is represented by two bytes aligned as a 16-bit word  
+
+
+![Screenshot_20230109_224911](https://user-images.githubusercontent.com/74668263/211368297-e927377d-7fed-420b-93ab-be3b3b5a473b.png)
+
